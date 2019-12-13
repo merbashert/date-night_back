@@ -1,3 +1,4 @@
 # ubiquitous-broccoli
 
-Justin Warren 
+Justin Warren
+Meredith Bashert
