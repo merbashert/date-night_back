@@ -5,18 +5,24 @@ $dbconn = pg_connect("host=localhost dbname=dates");
 
 class Date {
     public $id;
-    public $movieName;
-    public $movieDate;
-    public $movieSnack;
-    public function __construct($id, $movieName, $movieDate, $movieSnack) {
+    public $moviename;
+    public $moviedate;
+    public $moviesnack;
+    public function __construct($id, $moviename, $moviedate, $moviesnack) {
         $this->id = $id;
-        $this->movieName = $movieName;
-        $this->movieDate = $movieDate;
-        $this->movieSnack = $movieSnack;
+        $this->moviename = $moviename;
+        $this->moviedate = $moviedate;
+        $this->moviesnack = $moviesnack;
     }
 }
 
 class Dates {
+
+    //This is the create function
+      static function create($date){
+      $query = "INSERT INTO userdates (moviename, moviedate, moviesnack) VALUES ($1, $2, $3)";
+    }
+
     static function all(){
         //create an empty array
         $dates = array();
@@ -27,15 +33,15 @@ class Dates {
         $row_object = pg_fetch_object($results);
         while($row_object){
 
-          $new_date = new Date(//this creates a a new date
-            $row_object->id,
-            $row_object->movieName,
-            $row_object->movieDate,
-            $row_object->movieSnack
+          $new_date = new Date(
+            intval($row_object->id),
+            $row_object->moviename,
+            $row_object->moviedate,
+            $row_object->moviesnack
           );
           $dates[] = $new_date; //push new date object into $dates array
 
-           $row_object = pg_fetch_object($results);
+          $row_object = pg_fetch_object($results);
        }
 
         //return the array of Dates
