@@ -49,7 +49,7 @@ class Form extends React.Component {
             Movie Snack
             <input type="text" placeholder="Movie Snack" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
             </label>
-            <input type="submit" value="share"/>
+
             <button>{this.props.view.button}</button>
             </form>
         )
