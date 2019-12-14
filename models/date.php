@@ -18,7 +18,7 @@ class Date {
 
 class Dates {
 
-    //This is the create function
+    This is the create function
       static function create($date){
       $query = "INSERT INTO userdates (moviename, moviedate, moviesnack) VALUES ($1, $2, $3)";
     }
