@@ -84,7 +84,7 @@ class Main extends React.Component {
             savedMovie: movie,
             savedPoster: poster
         }, () => {
-            {this.props.handleView('addDate')};
+            this.props.handleView('addDate')
         })
     }
 
@@ -99,14 +99,14 @@ class Main extends React.Component {
 
         return (
             <>
-            {(this.props.view.page == 'addDate' || this.props.view.page == 'editDate')?<h1 className = "page-name-center">{this.props.view.pageTitle}</h1>:<h1 className = "page-name">{this.props.view.pageTitle}</h1>}
+            {(this.props.view.page === 'addDate' || this.props.view.page === 'editDate')?<h1 className = "page-name-center">{this.props.view.pageTitle}</h1>:<h1 className = "page-name">{this.props.view.pageTitle}</h1>}
             <main className = "main">
             {this.props.view.page === 'home'
             ? this.state.dates.map((dateData) => (
                 <Date key={dateData.id} dateData={dateData} handleView={this.props.handleView} handleDelete={this.handleDelete}/>))
-              : this.props.view.page === 'movieSearch' ? <MovieSearch movie = {this.state.movie} saveMovie={this.saveMovie}/>
+              : this.props.view.page === 'movieSearch' ? <MovieSearch movie = {this.state.movie} saveMovie={this.saveMovie} handleView={this.props.handleView}/>
               : <Form handleCreate={this.handleCreate}button={this.props.view.button} formInputs={this.props.formInputs}
-            handleUpdate={this.handleUpdate} view={this.props.view} savedMovie={this.state.savedMovie} savedPoster={this.state.savedPoster}/>
+            handleUpdate={this.handleUpdate} view={this.props.view} savedMovie={this.state.savedMovie} savedPoster={this.state.savedPoster} handleView={this.props.handleView}/>
         }
         </main>
         </>
