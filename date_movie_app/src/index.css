@@ -101,7 +101,7 @@ button:hover{
 .movie-search input[type="submit"] {
     background-color: var(--lightblue);
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Lato', sans-serif;
     margin-top: 6px;
 }

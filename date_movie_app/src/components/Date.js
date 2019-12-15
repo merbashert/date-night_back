@@ -5,6 +5,9 @@ class Date extends React.Component {
     render () {
         return (
             <div className = "card">
+            <div className = "movieposter">
+            <img src={this.props.dateData.movieposter}/>
+            </div>
             <div className="moviename">
             <h3>{this.props.dateData.moviename}</h3>
             </div>

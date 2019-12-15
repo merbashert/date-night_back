@@ -39,7 +39,7 @@ class Form extends React.Component {
             <div className = "center-flex">
             <div className = "date-entry">
             {(this.props.savedMovie) ?
-                (<img src={this.props.savedPoster} className="saved-movie-poster"/>):null}
+                (this.state.movieposter=this.props.savedPoster, <img src={this.props.savedPoster} className="saved-movie-poster"/>):null}
             <form onSubmit={this.handleSubmit}>
             <label id="movie-name">
             {(this.props.savedMovie) ?
