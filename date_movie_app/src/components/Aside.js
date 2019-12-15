@@ -6,10 +6,10 @@ class Aside extends React.Component {
   render () {
     return (
       <aside>
-        <h1>NAVIGATE</h1>
-        <ul>
+        <ul className = "nav-bar">
           <li onClick={() => {this.props.handleView('home')}}>Home</li>
           <li onClick={() => {this.props.handleView('addDate')}}>Add Date</li>
+          <li onClick={() => {this.props.handleView('movieSearch')}}>Search for movie</li>
         </ul>
       </aside>
     )

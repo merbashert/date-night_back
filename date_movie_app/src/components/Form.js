@@ -36,22 +36,26 @@ class Form extends React.Component {
 
     render () {
         return (
+            <div className = "center-flex">
+            <div className = "date-entry">
             <form onSubmit={this.handleSubmit}>
-            <label>
-            Movie Name
+
+            <label id="movie-name">
             <input type="text" placeholder="What are you going to watch?" id="moviename" value={this.state.moviename} onChange={this.handleChange}/>
             </label>
-            <label>
-            Date
+            <br/>
+            <label id="movie-date">
             <input type="text" placeholder="What date is your date?" id="moviedate" value={this.state.moviedate} onChange={this.handleChange}/>
             </label>
-            <label id="date-form">
-            Movie Snack
-            <input type="text" placeholder="Movie Snack" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
+            <br/>
+            <label id="snack">
+            <input type="text" placeholder="What are you going to eat?" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
             </label>
-
-            <button>{this.props.view.button}</button>
+            <br/>
+            <button className = "form-button">{this.props.view.button}</button>
             </form>
+            </div>
+            </div>
         )
     }
 }
