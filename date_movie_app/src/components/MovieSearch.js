@@ -36,16 +36,16 @@ class MovieSearch extends React.Component {
 
 render() {
     return (
-        <div>
+        <div className = "movie-search">
         <form
-        onSubmit={this.handleMovie} className = "movie-search">
+        onSubmit={this.handleMovie}>
         <label htmlFor="movieTitle">Movie Title </label>
         <input
         type = 'text'
         id='movieTitle'
         value={this.state.movieTitle}
         onChange={this.handleChangeMovie}
-        />
+        /><br/>
         <input
         type='submit'
         value="Find Movie Info"

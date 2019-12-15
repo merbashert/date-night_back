@@ -76,10 +76,6 @@ body {
     width: 100%;
 }
 
-h1 {
-    margin-left: 5px;
-}
-
 button {
     background-color: var(--lightblue);
     color: white;
@@ -98,8 +94,8 @@ button:hover{
     width: 50%;
 }
 
-.movie-search input {
-    margin: 0px 5px;
+.movie-search input[type="text"] {
+    width: 200px;
 }
 
 .movie-search input[type="submit"] {
@@ -107,7 +103,7 @@ button:hover{
     color: white;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-    margin: 3px;
+    margin-top: 6px;
 }
 
 .movie-search input[type="submit"]:hover {
@@ -146,4 +142,8 @@ button:hover{
 
 .page-name-center {
     text-align: center;
+}
+
+.page-name {
+    margin: 5px 0px 10px 10px;
 }
