@@ -143,3 +143,7 @@ button:hover{
 .saved-movie-poster {
     width: 80%;
 }
+
+.page-name-center {
+    text-align: center;
+}

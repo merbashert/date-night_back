@@ -99,7 +99,7 @@ class Main extends React.Component {
 
         return (
             <>
-            <h1>{this.props.view.pageTitle}</h1>
+            {(this.props.view.page == 'addDate' || this.props.view.page == 'editDate')?<h1 className = "page-name-center">{this.props.view.pageTitle}</h1>:<h1 className = "page-name">{this.props.view.pageTitle}</h1>}
             <main className = "main">
             {this.props.view.page === 'home'
             ? this.state.dates.map((dateData) => (
