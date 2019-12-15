@@ -103,7 +103,7 @@ class Main extends React.Component {
             <main className = "main">
             {this.props.view.page === 'home'
             ? this.state.dates.map((dateData) => (
-                <Date key={dateData.id} dateData={dateData} handleView={this.props.handleView} handleDelete={this.handleDelete}/>))
+                <Date key={dateData.id} dateData={dateData} handleView={this.props.handleView} handleDelete={this.handleDelete} savedMovie={this.state.savedMovie}/>))
               : this.props.view.page === 'movieSearch' ? <MovieSearch movie = {this.state.movie} saveMovie={this.saveMovie} handleView={this.props.handleView}/>
               : <Form handleCreate={this.handleCreate}button={this.props.view.button} formInputs={this.props.formInputs}
             handleUpdate={this.handleUpdate} view={this.props.view} savedMovie={this.state.savedMovie} savedPoster={this.state.savedPoster} handleView={this.props.handleView}/>

@@ -1,4 +1,5 @@
 import React from 'react'
+import filmIcon from './filmicon.png'
 
 class Date extends React.Component {
 
@@ -6,7 +7,7 @@ class Date extends React.Component {
         return (
             <div className = "card">
             <div className = "movieposter">
-            <img src={this.props.dateData.movieposter} alt='movie poster'/>
+            {(this.props.dateData.movieposter)?<img src={this.props.dateData.movieposter} alt='movie poster'/>:<img src={filmIcon}/>}
             </div>
             <div className="movieinfo">
             <div className="moviedata">

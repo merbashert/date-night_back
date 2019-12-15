@@ -1,5 +1,5 @@
-import React from 'react'
-import filmIcon from './public/images/filmicon.png'
+import React from 'react';
+import filmIcon from './filmicon.png'
 
 class Form extends React.Component {
     constructor() {
@@ -32,7 +32,7 @@ class Form extends React.Component {
             moviename: this.props.savedMovie,
             moviedate: this.props.formInputs.moviedate,
             moviesnack: this.props.formInputs.moviesnack,
-            movieposter: filmIcon,
+            movieposter: this.props.savedPoster,
             id: this.props.formInputs.id
 
 
@@ -42,7 +42,6 @@ class Form extends React.Component {
             moviename: this.props.formInputs.moviename,
             moviedate: this.props.formInputs.moviedate,
             moviesnack: this.props.formInputs.moviesnack,
-            movieposter: this.props.savedPoster,
             id: this.props.formInputs.id
 
         })
