@@ -17,6 +17,10 @@ body {
     color: var(--white);
 }
 
+.nav-bar li:hover{
+    color: var(--darkblue);
+}
+
 .nav-bar {
     background-color: var(--lightblue);
     height: 50px;
@@ -46,26 +50,25 @@ body {
     width: 50%;
     background-color: var(--lightblue);
     border: 2px solid var(--darkblue);
-    padding: 30px;
     display: flex;
     justify-content: center;
-    box-shadow: 2px 2px rgb(0,0,0,.4)
-}
-
-.date-entry form {
-    width: 80%;
+    box-shadow: 2px 2px rgb(0,0,0,.4);
+    padding: 10px;
+    margin: 5px;
 }
 
 .date-entry input {
-    margin: 5px;
-    width: 100%;
+    margin: 5px 10px;
+    width: 85%;
     height: 30px;
     font-size: 16px;
 }
 
 .date-entry button {
-    margin-left: 5px;
+    margin: 10px;
+    font-size: 20px;
 }
+
 
 .center-flex {
     display: flex;
@@ -91,7 +94,8 @@ button:hover{
 }
 
 .form-button {
-    background-color: var(--mediumblue)
+    background-color: var(--mediumblue);
+    width: 50%;
 }
 
 .movie-search input {
@@ -125,11 +129,17 @@ button:hover{
     margin: 0px 10px;
 }
 
-.save-movie {
-    display: flex;
-    justify-content: center;
-}
 
 .save-movie button {
-    font-size: 22px;
+    font-size: 26px;
+}
+
+.saved-movie-name {
+    font-size: 24px;
+    color: white;
+    margin-left: 10px;
+}
+
+.saved-movie-poster {
+    width: 80%;
 }

@@ -38,26 +38,29 @@ class Form extends React.Component {
         return (
             <div className = "center-flex">
             <div className = "date-entry">
+            {(this.props.savedMovie) ?
+                (<img src={this.props.savedPoster} className="saved-movie-poster"/>):null}
             <form onSubmit={this.handleSubmit}>
-
             <label id="movie-name">
-            <input type="text" placeholder="What are you going to watch?" id="moviename" value={this.state.moviename} onChange={this.handleChange}/>
-            </label>
-            <br/>
-            <label id="movie-date">
-            <input type="text" placeholder="What date is your date?" id="moviedate" value={this.state.moviedate} onChange={this.handleChange}/>
-            </label>
-            <br/>
-            <label id="snack">
-            <input type="text" placeholder="What are you going to eat?" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
-            </label>
-            <br/>
-            <button className = "form-button">{this.props.view.button}</button>
-            </form>
-            </div>
-            </div>
-        )
-    }
-}
+            {(this.props.savedMovie) ?
+                (this.state.moviename=this.props.savedMovie,
+                    <div>
+                    <div className="saved-movie-name">{this.props.savedMovie}</div></div>)
+                    :
+                    <input type="text" placeholder="What are you going to watch?" id="moviename" value={this.state.moviename} onChange={this.handleChange}/>}
+                    </label>
+                    <label id="movie-date">
+                    <input type="text" placeholder="What date is your date?" id="moviedate" value={this.state.moviedate} onChange={this.handleChange}/>
+                    </label>
+                    <label id="snack">
+                    <input type="text" placeholder="What are you going to eat?" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
+                    </label>
+                    <button className = "form-button">{this.props.view.button}</button>
+                    </form>
+                    </div>
+                    </div>
+                )
+            }
+        }
 
-export default Form
+        export default Form

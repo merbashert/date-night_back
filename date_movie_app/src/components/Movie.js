@@ -14,11 +14,11 @@ class MovieInfo extends React.Component {
 
             <h4>Genre: {this.props.movie.Genre}</h4>
             <h5>Plot: {this.props.movie.Plot}</h5>
-            {/*<div className="save-movie">
-            <button onClick={() => this.props.saveMovie(this.props.movie.Title)}>Save Movie</button>*/}
+            <div className="save-movie">
+            <button onClick={() => this.props.saveMovie(this.props.movie.Title, this.props.movie.Poster)}>Save Movie</button>
             </div>
             </div>
-            // </div>
+            </div>
         )
     }
 }
