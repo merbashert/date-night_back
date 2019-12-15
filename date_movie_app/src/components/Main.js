@@ -2,6 +2,8 @@ import React from 'react'
 
 import Date from './Date.js'
 import Form from './Form.js'
+import MovieSearch from './MovieSearch'
+
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -74,28 +76,38 @@ class Main extends React.Component {
             })
         }).catch(err=>console.log(err))
     }
+
+
+    saveMovie = (movie) => {
+        this.setState({
+            savedMovie: movie
+        }, () => {
+            console.log(this.state.savedMovie);
+        })
+    }
+
+
+
     componentDidMount(){//loads right after the page does
         this.fetchDates()
     }
 
 
     render () {
+
         return (
-            <main>
+            <>
             <h1>{this.props.view.pageTitle}</h1>
+            <main className = "main">
             {this.props.view.page === 'home'
             ? this.state.dates.map((dateData) => (
-                <Date
-                key={dateData.id}
-                dateData={dateData}
-                handleView={this.props.handleView}
-                handleDelete={this.handleDelete}
-                />
-            ))
-            : <Form handleCreate={this.handleCreate}button={this.props.view.button} formInputs={this.props.formInputs}
+                <Date key={dateData.id} dateData={dateData} handleView={this.props.handleView} handleDelete={this.handleDelete}/>))
+              : this.props.view.page === 'movieSearch' ? <MovieSearch movie = {this.state.movie} saveMovie={this.saveMovie}/>
+              : <Form handleCreate={this.handleCreate}button={this.props.view.button} formInputs={this.props.formInputs}
             handleUpdate={this.handleUpdate} view={this.props.view}/>
         }
         </main>
+        </>
     )
 }
 }

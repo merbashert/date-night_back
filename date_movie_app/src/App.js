@@ -5,12 +5,12 @@ import Aside from './components/Aside.js'
 
 
 class App extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props)
         this.state = {
             view: {
                 page: 'home',
-                pageTitle: "Date Nights:",
+                pageTitle: "Date Nights",
                 button: null
             },
             formInputs: {
@@ -21,6 +21,8 @@ class App extends React.Component {
             }
         }
     }
+
+
     handleView = (view, dateData) => {
         let pageTitle = ''
         let button = ''
@@ -32,7 +34,7 @@ class App extends React.Component {
         }
         switch(view) {
             case 'home':
-            pageTitle = 'Date Nights:'
+            pageTitle = 'Date Nights'
             break
             case 'addDate':
             pageTitle = 'Make a Date!'
@@ -47,6 +49,10 @@ class App extends React.Component {
                 moviesnack: dateData.moviesnack,
                 id: dateData.id
             }
+            break
+            case 'movieSearch':
+            pageTitle = 'Search for a movie!'
+            button = "Search for movie"
             break
             default:
             break
@@ -67,7 +73,7 @@ class App extends React.Component {
     render () {
         return (
             <div>
-            <Aside handleView={this.handleView}/>
+            <Aside handleView={this.handleView} className = 'nav-bar'/>
             <Main
             view={this.state.view}
             handleView = {this.handleView}
