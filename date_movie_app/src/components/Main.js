@@ -28,7 +28,7 @@ class Main extends React.Component {
         }).catch(err=>console.log(err))
     }
 
-    handleCreate = (createData) => {
+    handleCreate = (createData, savedMovie) => {
         fetch(`${baseUrl}/dates`, {
             body: JSON.stringify(createData),
             method: 'POST',
@@ -42,7 +42,8 @@ class Main extends React.Component {
         .then(json => {
             this.props.handleView('home')
             this.setState({
-                dates: json
+                dates: json,
+                savedMovie: savedMovie
             })
         })
         .catch(err=>console.log(err))
@@ -78,11 +79,12 @@ class Main extends React.Component {
     }
 
 
-    saveMovie = (movie) => {
+    saveMovie = (movie, poster) => {
         this.setState({
-            savedMovie: movie
+            savedMovie: movie,
+            savedPoster: poster
         }, () => {
-            console.log(this.state.savedMovie);
+            this.props.handleView('addDate')
         })
     }
 
@@ -97,14 +99,14 @@ class Main extends React.Component {
 
         return (
             <>
-            <h1>{this.props.view.pageTitle}</h1>
+            {(this.props.view.page === 'addDate' || this.props.view.page === 'editDate')?<h1 className = "page-name-center">{this.props.view.pageTitle}</h1>:<h1 className = "page-name">{this.props.view.pageTitle}</h1>}
             <main className = "main">
             {this.props.view.page === 'home'
             ? this.state.dates.map((dateData) => (
-                <Date key={dateData.id} dateData={dateData} handleView={this.props.handleView} handleDelete={this.handleDelete}/>))
-              : this.props.view.page === 'movieSearch' ? <MovieSearch movie = {this.state.movie} saveMovie={this.saveMovie}/>
+                <Date key={dateData.id} dateData={dateData} handleView={this.props.handleView} handleDelete={this.handleDelete} savedMovie={this.state.savedMovie}/>))
+              : this.props.view.page === 'movieSearch' ? <MovieSearch movie = {this.state.movie} saveMovie={this.saveMovie} handleView={this.props.handleView}/>
               : <Form handleCreate={this.handleCreate}button={this.props.view.button} formInputs={this.props.formInputs}
-            handleUpdate={this.handleUpdate} view={this.props.view}/>
+            handleUpdate={this.handleUpdate} view={this.props.view} savedMovie={this.state.savedMovie} savedPoster={this.state.savedPoster} handleView={this.props.handleView}/>
         }
         </main>
         </>
