@@ -1,5 +1,5 @@
 import React from 'react'
-import filmIcon from './filmicon.png'
+import filmIcon from './filmicon.jpg'
 
 class Date extends React.Component {
 
