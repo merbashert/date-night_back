@@ -1,6 +1,6 @@
 # Date Nights App 
 
-[Live App] (https://fast-thicket-69779.herokuapp.com/)
+https://fast-thicket-69779.herokuapp.com/
 
 ## Overview
 The Date Nights App was created by Meredith Bashert and Justin Warren as a part of General Assembly’s Software Engineering Immersive Program.  The app allows a user to keep track of the movies they would like to watch for upcoming date nights.  The home page displays all user entries, with the ability to edit/delete entries.  In addition to this, users are able to search for movies using the OMBD database(http://www.omdbapi.com/) as the core API.
