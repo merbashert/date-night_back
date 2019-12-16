@@ -31,7 +31,7 @@ class Dates {
 
     //This is the update function
     static function update($updated_date){
-    $query = "UPDATE userdates SET moviename = $1, moviedate = $2, moviesnack = $3, moviepost=$4 WHERE id = $5";
+    $query = "UPDATE userdates SET moviename = $1, moviedate = $2, moviesnack = $3, movieposter = $4 WHERE id = $5";
     $query_params = array($updated_date->moviename, $updated_date->moviedate, $updated_date->moviesnack, $updated_date->movieposter, $updated_date->id);
     $result = pg_query_params($query, $query_params);
 
