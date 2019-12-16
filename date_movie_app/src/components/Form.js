@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+
 
 class Form extends React.Component {
     constructor() {
@@ -26,11 +27,23 @@ class Form extends React.Component {
     }
 
     componentDidMount(){
+        (this.props.savedMovie)?
+        this.setState({
+            moviename: this.props.savedMovie,
+            moviedate: this.props.formInputs.moviedate,
+            moviesnack: this.props.formInputs.moviesnack,
+            movieposter: this.props.savedPoster,
+            id: this.props.formInputs.id
+
+
+
+        }):
         this.setState({
             moviename: this.props.formInputs.moviename,
             moviedate: this.props.formInputs.moviedate,
             moviesnack: this.props.formInputs.moviesnack,
             id: this.props.formInputs.id
+
         })
     }
 
@@ -38,26 +51,30 @@ class Form extends React.Component {
         return (
             <div className = "center-flex">
             <div className = "date-entry">
+            {(this.props.savedMovie) ?
+                <img src={this.props.savedPoster} className="saved-movie-poster" alt = "movie poster"/>:null}
             <form onSubmit={this.handleSubmit}>
-
             <label id="movie-name">
-            <input type="text" placeholder="What are you going to watch?" id="moviename" value={this.state.moviename} onChange={this.handleChange}/>
-            </label>
-            <br/>
-            <label id="movie-date">
-            <input type="text" placeholder="What date is your date?" id="moviedate" value={this.state.moviedate} onChange={this.handleChange}/>
-            </label>
-            <br/>
-            <label id="snack">
-            <input type="text" placeholder="What are you going to eat?" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
-            </label>
-            <br/>
-            <button className = "form-button">{this.props.view.button}</button>
-            </form>
-            </div>
-            </div>
-        )
-    }
-}
+            {(this.props.savedMovie) ?
+                (
+                    <div>
+                    <div className="saved-movie-name">{this.props.savedMovie}</div></div>):
+                    <input type="text" placeholder="What are you going to watch?" id="moviename" value={this.state.moviename} onChange={this.handleChange}/>}
+                    </label>
+                    <label id="movie-date">
+                    <input type="text" placeholder="What date is your date?" id="moviedate" value={this.state.moviedate} onChange={this.handleChange}/>
+                    </label>
+                    <label id="snack">
+                    <input type="text" placeholder="What are you going to eat?" id="moviesnack" value={this.state.moviesnack} onChange={this.handleChange}></input>
+                    </label>
+                    <button className = "form-button">{this.props.view.button}</button>
+                    <button className = "form-button" onClick={() => {this.props.handleView('home')}}>Cancel</button>
+                    </form>
 
-export default Form
+                    </div>
+                    </div>
+                )
+            }
+        }
+
+        export default Form

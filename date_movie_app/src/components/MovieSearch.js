@@ -9,7 +9,8 @@ class MovieSearch extends React.Component {
             apikey: 'apikey=' + '8d4170a0',
             query: '&t=',
             movieTitle: '',
-            searchURL: ''
+            searchURL: '',
+            movie: {}
         }
     }
 
@@ -25,6 +26,7 @@ class MovieSearch extends React.Component {
             fetch(this.state.searchURL)
             .then(response => {
                 return response.json()
+                // console.log(response.json());
             }).then(json => this.setState({
                 movie: json,
                 movieTitle: ''
@@ -36,23 +38,25 @@ class MovieSearch extends React.Component {
 
 render() {
     return (
-        <div>
+        <div className = "movie-search">
         <form
-        onSubmit={this.handleMovie} className = "movie-search">
+        onSubmit={this.handleMovie}>
         <label htmlFor="movieTitle">Movie Title </label>
         <input
         type = 'text'
         id='movieTitle'
         value={this.state.movieTitle}
         onChange={this.handleChangeMovie}
-        />
+        /><br/>
         <input
         type='submit'
         value="Find Movie Info"
         />
+        <button onClick={() => {this.props.handleView('home')}}>Cancel</button>
         </form>
         {
-            (this.state.movie) ? <MovieInfo movie = {this.state.movie} saveMovie = {this.props.saveMovie}/> : null
+            (this.state.movie.Title && !this.state.movie.Error) ? <MovieInfo movie = {this.state.movie} saveMovie = {this.props.saveMovie}/> : (this.state.movie.Error)?<h1>Nothing Found!  Try again!</h1>:null
+            //add response for when no value
         }
 
         </div>
